@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comandos Git</title>
+    <style>
+       
+        h1{
+            text-align: center;
+            color: #fff;
+        }
+        p{
+            font-weight: bold;
+            color: #fff;
+        }
+    
+        html{
+            background-color: rgb(77, 119, 121);
+        }   
+        li{
+            margin: 2px;
+        }
+        ul,article{
+            color: #fff;
+        }
+       
+       
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Comandos Git</h1>
+
+        <section>
+
+            <div>
+                    <p>Comandos de Ajuda</p>
+                    <ul> 
+                        <li>git help (comando geral)</li>
+                        <li>git help add </li>
+                        <li>git help commit</li>            
+                    </ul>
+        
+                    <p>Setar usuário e email </p>
+                    <ul>
+                        <li>git config --global user.name "nome do usuário"</li>
+                        <li> git config --global user.email email@email.com</li>
+                    </ul>
+                    
+                    <p>Remover todas as linhas que referenciam o usuário e email </p>
+                    <ul>
+                        <li>git config --global --unset user.name "nome do usuário"</li>
+                        <li>git config --global --unset user.email email@email.com</li>
+                    </ul>
+                    
+                    <p>Lista configurações</p>
+                        <ul>
+                            <li>git config --list</li>
+                        </ul>
+            </div>
+
+         
+            <div>
+                <p> Criando novo repositório  </p>
+                    <ul>
+                        <li>git init</li>
+                    </ul>
+
+                    <p>Verificar o estado dos arquivos/diretórios</p>
+                    <ul>
+                        <li>git status (mostra qual a situação do arquivos no seu repositório) </li>
+                    </ul>
+
+                    <p>Adicionando arquivo</p>
+                    <ul>
+                        <li>git add meu_diretorio (arquivo específico)</li>
+                        <li>git add . / git add --all (todos os arquivos)</li>
+                    </ul>
+                   <p>Comitar arquivo/diretório</p>
+                   <ul>
+                       <li>git commit arquivo -m "mensagem de commit"</li>
+                   </ul>
+                   <p>Remover arquivo/diretório</p>
+                   <ul>
+                       <li>git rm arquivo (remove arquivo)</li>
+                       <li>git rm -r diretório (remove diretório/pasta)</li>
+                   </ul>
+                  <p>Vizualizar histórico</p>
+                  <ul>
+                      <li>git log (exibir histórico)</li>
+                      <li>git log --author=usuario (exibir histórico de um determinado)</li>
+                      </ul>
+            </div>
+
+            <div>
+                <p>Desfazendo operações</p>
+
+                <ul>
+                    <p>Desfazendo alteração local no seu diretório de trabalho local</p>
+                    <li>git checkout -- arquivo (Este comando só deve ser utilizado enquanto o arquivo ainda não foi adicionado na área de trabalho temporária) </li>
+                </ul>
+
+                <ul>
+                    <p>Dezfazendo alteração local na área de trabalho temporária(staged area)</p>
+                    <li>git reset HEAD arquivo (Este comando deve ser utilizado quando o arquivo já foi adicionado na área temporária)
+
+                        Unstaged changes after reset:M  arquivo (se o resultado abaixo for exibido, o comando reset não alterou o diretório de trabalho)
+                    </li>
+                    <li>git checkout arquivo (a alteração do diretório pode ser realizada através deste comando)</li>
+                </ul>
+
+            </div>
+
+            <div>
+                <p>Repositório Remoto - Exibir os repositórios remotos (Para sabermos para onde estão sendo enviadas nossas alterações ou de onde estamos baixando as coisas) </p>
+                <ul>
+                    <li>git remote</li>
+                    <li>git remote -v</li>
+                    <li>git remote add https://github.com/meunome/arquivo.git (vincular repositório local com um repositório remoto )</li>
+                    <li>git remote show origin (exibir informações dos repositórios remotos)</li>
+                    <li>git remote rename origin arquivo-git (renomear um repositório remoto)</li>
+                    <li>git remote rm arquivo-git (desvincular um repositório remoto)</li>
+                    <li>git push -u origin master (o primeiro push no repositório deve conter o nome do mesmo e a sua branch)</li>
+                    <li>git push (os demais pushes não precisam de outras informações)</li>
+                </ul>
+
+                <p>Atualizar repositório local de acordo com o repositório remoto</p>
+                <ul>
+                    <li>git pull (atualizar os arquivos em relação a branch atual)</li>
+                    <li>git fetch (buscar as alterações, mas não aplica-las na branch atual)</li>
+                </ul>
+
+                <p>Clonar um repositório remoto já existente</p>
+                <ul>
+                    <li>git clone https://github.com/meunome/arquivo.git</li>
+                </ul>
+
+            </div>
+            
+           <div>
+                <p>Branches</p>
+                <article> A master é a branch principal do GIT 
+            <br>
+                        O HEAD é um ponteiro especial que indica qual é o branch atual. Por padrão, o HEAD aponta para o branch principal, o master.
+                </article>
+
+                <ul>
+                    <li>git branch novaBranch_nome (criando uma nova branch)</li>
+                    <li>git checkout novaBranch_nome (trocando para uma branch existente). Neste caso,o ponteiro principal HEAD esta apontando para o branch chamada novaBranch_nome</li>
+                    <li>git checkout -b novaBranch_nome (cria uma nova branch e troca pra ela)</li>
+                    <li>git checkout master (voltar para a branch principal(master))</li>
+                    <li>git merge novaBranch_nome (resolve o merge entre duas branches) - para realizar o merge, é necessário estar no branch que deverá receber as alterações</li>
+                    <li>git branch -d novaBranch_nome (apagando uma branch)</li>
+                    <li>git branch (listar branches)</li>
+                    <li>git branch -v (listar branches com informações dos últimos commits)</li>
+                    <li>git branch --merged (listar branches já foram fundidos(merged) com a master</li>
+                    <li>git branch --no-merged (listar branches que não foram fundidos(merged) com a master</li>
+                    <li>git push origin novaBranch_nome (criando um branch remoto com o mesmo nome)</li>
+                </ul>
+
+           </div>
+
+           <div>
+               <p>Reescrevendo o histórico</p>
+               <ul>
+                   <li>git commit --amend -m "Minha nova mensagem" (alterando mensagens do commit)</li>
+               </ul>
+           </div>
+            
+            
+        </section>
+
+
+
+
+    </main>
+</body>
+</html>
+
+ 
+                          
+                         
